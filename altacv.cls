@@ -38,7 +38,7 @@
 \LoadClass{article}
 %% v1.3.2 Hopefully this helps make the PDF
 %% file more 'friendly' with copy-paste etc
-%% \RequirePackage{fixpdfx}
+\RequirePackage{fixpdfx}
 \RequirePackage[a-1b]{pdfx}
 %% v1.3.3 Temporary fix for pdfx and biblatex incompatibility
 %% (Thanks to @badetitou for highlighting this issue)
