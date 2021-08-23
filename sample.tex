@@ -1,0 +1,287 @@
+
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+\usepackage[utf8]{inputenc}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% Use (and optionally edit if necessary) this .cfg if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+\input{pubs-authoryear.cfg}
+
+%% Use (and optionally edit if necessary) this .cfg if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+% \input{pubs-num.cfg}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Beno{\^\i}t Verhaeghe}
+\tagline{Software Engineer}
+%% You can add multiple photos on the left or right
+\photoR{2.8cm}{profil}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{badetitou@gmail.com}
+  \phone{+33 6 58 33 53 74}
+  \mailaddress{40, rue Pasteur}
+  \location{59260 Lezennes, FRANCE}
+  \homepage{badetitou.github.io}
+  \twitter{@badetitou}
+  \linkedin{benoitverhaeghe}
+  \github{badetitou}
+  \orcid{0000-0002-4588-2698}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+
+\cvevent{Doctorant Génie Logiciel}{Berger-Levrault/Inria RMoD}{January 2018}{Montpellier/Lille, France}
+\begin{itemize}
+\item Migration d'application GWT vers Angular
+\item Mise en place d'architecture hybride
+\item Écriture de papiers de recherche
+\item Enseignement théorie des modèles
+\end{itemize}
+
+\divider
+
+\cvevent{Ingénieur Logiciel}{Berger-Levrault}{Mars 2018 -- Décembre 2018}{Montpellier, France}
+\begin{itemize}
+\item Analyse de l’architecture des applications de Berger-Levrault
+\item Développement d'outils pour la migration de GWT vers Angular
+\end{itemize}
+
+\divider
+
+\cvevent{Etudiant-Chercheur}{RMoD - Inria Lille Nord Europe}{May -- September 2017}{Villeneuve d'Ascq, France}
+\begin{itemize}
+  \item Développement en Pharo d'un "spy" (TestsUsageAnalyser)
+  \item Ecriture d'un article scientifique pour l'IWST
+  \item Développement d'un outil de sélection de tests (SmartTest)
+\end{itemize}
+
+\divider
+
+\cvevent{Developpeur Informatique}{University of Emden,  Departement Computer Science}{Avril -- July 2015}{Emden, Allemagne}
+\begin{itemize}
+  \item Développement de l'application "Factory Interface"
+\end{itemize}
+
+
+\cvsection{Projects}
+
+\cvevent{SmartTest}{Inria RMoD}{July 2017}{Lille, FRANCE}
+\begin{itemize}
+\item Sélection de tests automatiques (Pharo)
+\item Développement de différentes stratégies d’exécution de test (Pharo)
+\end{itemize}
+
+\divider
+
+\cvevent{TestsUsageAnalyser}{Inria RMoD}{Avril -- Aout 2017}{Lille, FRANCE}
+\begin{itemize}
+  \item Espion collecteur de données
+\end{itemize}
+  
+
+% \medskip
+
+% \cvsection{A Day of My Life}
+
+% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% % \wheelchart{outer radius}{inner radius}{
+% % comma-separated list of value/text width/color/detail}
+% \wheelchart{1.5cm}{0.5cm}{%
+%   6/8em/accent!30/{Sleep,\\beautiful sleep},
+%   3/8em/accent!40/Hopeful novelist by night,
+%   8/8em/accent!60/Daytime job,
+%   2/10em/accent/Sports and relaxation,
+%   5/6em/accent!20/Spending time with family
+% }
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+\newpage
+
+\cvsection{Publications}
+
+\nocite{*}
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+% \divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+
+\divider
+
+\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+% \cvsection{My Life Philosophy}
+
+% \begin{quote}
+% ``Something smart or heartfelt, preferably in one sentence.''
+% \end{quote}
+
+\cvsection{Success}
+
+\cvachievement{\faTrophy}{Best Paper Award}{Migrating GWT to Angular 6 using MDE @ Sattose}
+
+\divider
+
+\cvachievement{\faTrophy}{2ème place Innovation Award}{SmartTest est arrivé deuxième à l’Innovation Award de ESUG2017}
+
+\divider
+
+\cvachievement{\faTrophy}{2ème place Nuit de l’Info}{J’étais responsable d’une équipe durant la Nuit de l’Info 2016}
+
+% \divider
+
+% \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+
+\cvsection{Strengths}
+
+\cvtag{Pharo}
+\cvtag{Java/JEE}
+\cvtag{Angular}
+\cvtag{GWT} \\
+\cvtag{Spring}
+\cvtag{C}
+
+\cvsection{Langues}
+
+\cvskill{French}{5}
+\divider
+
+\cvskill{English}{4}
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{January 2019 -- October 2021}{}
+Support à la migration d'application GWT vers Angular
+
+\divider
+
+\cvevent{Ingénieur Informatique et Statistique}{Polytech Lille}{September 2015 -- July 2018}{}
+
+\divider
+
+\cvevent{DUT Informatique}{IUT A - University of Lille}{Sept 2014 -- June 2015}{}
+
+% \divider
+
+\cvsection{Hobbies}
+
+\cvevent{Le Club Info -- Président}{Polytech Lille}{2016 -- 2018}{}
+
+\divider
+
+\cvevent{Tennis de table -- Trésorier}{Lezennes, FRANCE}{2016 -- 2018}{}
+
+\divider
+
+\cvevent{Recherche Historique -- Secrétaire}{CRHL Lezennes, FRANCE}{2014 -- February 2018}{}
+
+
+% \cvsection{Referees}
+
+% % \cvref{name}{email}{mailing address}
+% \cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
+% {Address Line 1\\Address line 2}
+
+% \divider
+
+% \cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
+% {Address Line 1\\Address line 2}
+
+
+\end{paracol}
+
+
+\end{document}
