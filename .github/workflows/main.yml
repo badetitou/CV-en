@@ -1,0 +1,76 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build pdf
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  push:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: cd on workspace
+        run: cd $GITHUB_WORKSPACE
+
+
+      - name: Github Action for LaTeX
+        # You may pin to the exact commit or the version.
+        # uses: dante-ev/latex-action@259e5ff953ad4d4616fbd09cc87a526ee5c4499a
+        uses: xu-cheng/latex-action@v2
+        with:
+          # The root LaTeX file to be compiled
+          root_file: sample.tex
+          # The working directory for the latex compiler to be invoked
+          working_directory: . # optional
+          # LaTeX engine to be used
+          # compiler: pdflatex # optional, default is latexmk
+          # Extra arguments to be passed to the latex compiler
+          args: -interaction=nonstopmode -file-line-error -auxdir=./out/ -outdir=./out/ -pdf
+          # Install extra packages by apt-get
+          # extra_system_packages: # optional
+
+                        
+      - name: Rename pdf
+        run: cp ./out/sample.pdf ./cv.pdf
+      
+      - name: Create empty changelog
+        run: |
+          cat > CHANGELOG.md << EndOfMessage
+          # Update CV
+          
+          The pdf is updated automatically
+          EndOfMessage
+        
+      - name: Update Release
+        # You may pin to the exact commit or the version.
+        # uses: johnwbyrd/update-release@1d5ec4791e40507e5eca3b4dbf90f0b27e7e4979
+        uses: johnwbyrd/update-release@v1.0.0
+        with:
+          # Your Github token; try \$\{\{ secrets.GITHUB_TOKEN \}\} if your build lasts less than an hour, or create your own secret token with repository access if your build requires longer than an hour.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Paths to built files to be released. May be absolute or relative to \$\{\{ github.workspace \}\}.
+          files: cv.pdf
+          # The name of the release to be created. A reasonable looking release name will be created from the current \$\{\{ github.ref \}\} if this input is not supplied.
+          # release: # optional
+          # The name of the tag to be used. If not provided, the name of the release will be used.
+          tag: "latest" # optional
+          # A one-line description for both the tag and the release.
+          message: "Update CS" # optional
+          # A fuller description of the release.
+          #body: # optional
+          # Should the release, if created, be marked as a prerelease?  Such releases are generally publicly visible.
+          # prerelease: # optional, default is true
+          # Should the release, if created, be marked as a draft?  Such releases are generally not publicly visible.
+          # draft: # optional
