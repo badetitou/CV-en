@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%
-% This is an sample CV template created using altacv.cls
+% This is a sample CV template created using altacv.cls
 % (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
 %
 %% It may be distributed and/or modified under the
@@ -12,12 +12,12 @@
 %% version 2003/12/01 or later.
 %%%%%%%%%%%%%%%%
 
-%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+%% Use the "normal photo" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
 \documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
 %% AltaCV uses the fontawesome5 and packages.
-%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+%% See http://texdoc.net/pkg/fontawesome5 for a full list of symbols.
 
 % Change the page layout if you need to
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
@@ -88,14 +88,15 @@
 	#3}
 
 \begin{document}
+
 \name{Beno{\^\i}t Verhaeghe}
-\tagline{Ph.D. in Software Migration}
+\tagline{Ph.D. in Software Engineering}
 %% You can add multiple photos on the left or right
 \photoR{2.8cm}{profil}
 
 \personalinfo{%
   % Not all of these are required!
-  \email{badetitou@gmail.com}
+  \email{work@badetitou.fr}
   \phone{+33 6 58 33 53 74}
   \mailaddress{34b, Avenue Jean Jaurès}
   \location{38600 Fontaine, FRANCE}
@@ -132,7 +133,7 @@
 
 \begin{itemize}
   \item Migrating GWT applications to Angular
-  \item Set up hybrid architecture (mixing GWT and Angular together)
+  \item Set up hybrid architecture (mixing GWT and Angular)
   \item Writing research papers
   \item Teaching
 \end{itemize}
@@ -142,32 +143,13 @@
 \cvevent{R\&D Software Engineer}{Berger-Levrault}{March 2018 -- December 2018}{Montpellier, France}
 
 \begin{itemize}
-  \item Creation of tools to migrate GWT applications to Angular technology
-  \item Meta-modeling
-  \item Code analysis
-  \item State of the art
+  \item Designing tools to migrate GWT applications to Angular
+  \item Analyse the company's source code
 \end{itemize}
 
 \divider
 
 \cvevent{Research Internship}{Inria RMoD}{May -- September 2017}{Villeneuve d'Ascq, France}
-
-\begin{itemize}
-  \item Learning the Pharo programming language
-  \item Understanding tests selection
-  \item Developing an automatic tests selection tool
-  \item Test the tool with the Pharo community
-  \item Integration of the tool in the Pharo core
-  \item Writing research paper
-\end{itemize}
-
-\divider
-
-\cvevent{Software Developer}{University of Emden,  Departement Computer Science}{Avril -- July 2015}{Emden, Allemagne}
-
-\begin{itemize}
-  \item Developing a Java application using the OPC-UA protocol
-\end{itemize}
 
 
 \cvsection{Projects}
@@ -184,53 +166,17 @@
 \divider
 
 
-\cvevent{Casino}{Berger-Levrault}{March 2018 --- October 2021}{Montpellier, France}
+\cvevent{Casino}{Inria RMoD/Berger-Levrault}{March 2018 --- today}{Montpellier, France}
 
 \begin{itemize}
   \item Automatic migration of application GUI
-  \item 6 importers and 5 exporters
 \end{itemize}
 
-\divider
-
-\cvevent{SmartTest}{Inria RMoD}{July 2017 --- July 2018}{Lille, France}
-\begin{itemize}
-  \item Automatic selection of tests in Pharo
-  \item Development of different test execution strategies
-\end{itemize}
-
-% \medskip
-
-% \cvsection{A Day of My Life}
-
-% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
-% % \wheelchart{outer radius}{inner radius}{
-% % comma-separated list of value/text width/color/detail}
-% \wheelchart{1.5cm}{0.5cm}{%
-%   6/8em/accent!30/{Sleep,\\beautiful sleep},
-%   3/8em/accent!40/Hopeful novelist by night,
-%   8/8em/accent!60/Daytime job,
-%   2/10em/accent/Sports and relaxation,
-%   5/6em/accent!20/Spending time with family
-% }
-
-% use ONLY \newpage if you want to force a page break for
-% ONLY the current column
-% \newpage
-
-%% Switch to the right column. This will now automatically move to the second
-%% page if the content is too long.
 \switchcolumn
-
-% \cvsection{My Life Philosophy}
-
-% \begin{quote}
-% ``Something smart or heartfelt, preferably in one sentence.''
-% \end{quote}
 
 \cvsection{Success}
 
-\cvachievement{\faTrophy}{Third place Innovation Award}{Pharo Language Server was elected third at the Innovation Award of ESUG'2022}
+\cvachievement{\faTrophy}{Third place Innovation Award}{\href{https://marketplace.visualstudio.com/items?itemName=badetitou.pharo-language-server}{\color{blue}\underline{Pharo Language Server}} was elected third at the Innovation Award of ESUG'2022}
 
 \divider
 
@@ -238,7 +184,7 @@
 
 \divider
 
-\cvachievement{\faTrophy}{Second place Innovation Award}{SmartTest was elected second at the Innovation Award of ESUG'2017}
+\cvachievement{\faTrophy}{Second place Innovation Award}{\href{https://badetitou.fr/projects/SmartTest/}{\color{blue}\underline{SmartTest}} was elected second at the Innovation Award of ESUG'2017}
 
 % \divider
 
@@ -247,12 +193,12 @@
 \cvsection{Strengths}
 
 \cvtag{Pharo}
+\cvtag{MDE}
 \cvtag{Java/JEE}
-\cvtag{Angular}
-\cvtag{GWT} \\
+\cvtag{Angular} \\
+\cvtag{GWT}
 \cvtag{Spring}
-\cvtag{C}
-\cvtag{TypeScript}
+\cvtag{Rest}
 
 \divider
 
@@ -289,20 +235,115 @@ Incremental Approach for Application GUI Migration using Metamodel
 
 \cvsection{Hobbies}
 
-\leftright{5em}{\textbf{Blog posts}}{\url{https://badetitou.fr/post/}} \par
-\leftright{11em}{\textbf{Aur package maintainer}}{I maintain the pharo-launcher package of ArchLinux} \par
-\leftright{11em}{\textbf{Computer science Club}}{Former president of the computer science club of Polytech Lille} \par
+\cvtag{Board game}
+\cvtag{Open-Source Contributor}
 
 
-% \cvevent{Le Club Info -- Président}{Polytech Lille}{2016 -- 2018}{}
+\end{paracol}
 
-% \divider
+\newpage
 
-% \cvevent{Tennis de table -- Trésorier}{Lezennes, FRANCE}{2016 -- 2018}{}
+\cvsection{Long CV}
 
-% \divider
+\cvsection{Experience}
 
-% \cvevent{Recherche Historique -- Secrétaire}{CRHL Lezennes, FRANCE}{2014 -- February 2018}{}
+\cvevent{R\&D Software Engineer}{Berger-Levrault}{November 2021 -- Today}{Lyon, France}
+
+\begin{itemize}
+  \item Migrating applications to Angular (Casino Project -- MDE)
+  \item Analyse code quality 
+  \item Manage Ph.D. Students and interns
+  \item Writing research papers
+  \item Follow-up academic partnership
+\end{itemize}
+
+\divider
+
+\cvevent{Ph.D. Software Engineer}{Berger-Levrault/Inria RMoD}{January 2019 -- October 2021}{Montpellier/Lille, France}
+
+\begin{itemize}
+  \item Migrating GWT applications to Angular
+  \item Set up hybrid architecture (mixing GWT and Angular together)
+  \item Writing research papers
+  \item Teaching
+  \item Writing blog post about the Moose platform
+  \begin{itemize}
+    \item \url{https://modularmoose.org/2022/10/27/test-your-moose-code-using-ci.html}
+    \item \url{https://modularmoose.org/2021/10/01/migrating-internationalization.html}
+    \item \url{https://modularmoose.org/2021/07/19/automatic-metamodel-documentation-generation.html}
+    \item \url{https://modularmoose.org/2021/05/15/connecting-meta-models.html}
+  \end{itemize}
+\end{itemize}
+
+\divider
+
+\cvevent{R\&D Software Engineer}{Berger-Levrault}{March 2018 -- December 2018}{Montpellier, France}
+
+\begin{itemize}
+  \item Creation of tools to migrate GWT applications to Angular technology
+  \item Meta-modeling
+  \item Code analysis
+  \item State of the art
+\end{itemize}
+
+\divider
+
+\cvevent{Research Internship}{Inria RMoD}{May -- September 2017}{Villeneuve d'Ascq, France}
+
+\begin{itemize}
+  \item Learning the Pharo programming language
+  \item Understanding tests selection
+  \item Developing an automatic tests selection tool
+  \item Test the tool with the Pharo community
+  \item Integration of the tool in the Pharo core
+  \item Writing research papers
+\end{itemize}
+
+\divider
+
+\cvevent{Software Developer}{University of Emden,  Departement Computer Science}{Avril -- July 2015}{Emden, Allemagne}
+
+\begin{itemize}
+  \item Developing a Java application using the OPC-UA protocol
+\end{itemize}
+
+\cvsection{Projects}
+
+\cvevent{VSCode plugin --- Pharo Language Support}{Personnal project}{January 2021}{}
+
+\begin{itemize}
+  \item Write Pharo code in VSCode
+  \item Debug Pharo code in VSCode
+  \item Use VSCode built-in notebook with Pharo
+  \item +1500 installs in VSCode marketplace
+\end{itemize}
+
+\divider
+
+
+\cvevent{Casino}{Inria RMoD/Berger-Levrault}{March 2018 --- today}{Montpellier, France}
+
+\begin{itemize}
+  \item Automatic migration of application GUI
+  \item 6 importers and 5 exporters
+\end{itemize}
+
+
+\divider
+
+\cvevent{Pharo LibVLC}{Personnal project}{}{}
+
+\href{https://github.com/badetitou/Pharo-LibVLC}
+{\color{blue}\underline{Pharo LibVLC}} is an FFI binding of the VLC library with Pharo.
+
+
+\divider
+
+\cvevent{SmartTest}{Inria RMoD}{July 2017 --- July 2018}{Lille, France}
+\begin{itemize}
+  \item Automatic selection of tests in Pharo
+  \item Development of different test execution strategies
+\end{itemize}
 
 \cvsection{teaching}
 
@@ -316,21 +357,36 @@ Incremental Approach for Application GUI Migration using Metamodel
 
 \cvevent{Basic Algorithms}{University of Montpellier}{2019 --- 2021}{Montpellier, France}
 
+\cvsection{Education}
 
-\cvsection{Referees}
+\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{January 2019 -- October 2021}{}
+Incremental Approach for Application GUI Migration using Metamodel
 
-\cvref{Prof.\ Anne Etien}{Inria}{anne.etien@univ-lille.fr}
+
+\textbf{Academic supervisors:}\\
+Nicolas Anquetil -- Associate professor -- Université de Lille\\
+Anne Etien -- Full professor -- Université de Lille\\
+\textbf{Industrial supervisor:} Abderrahmane Seriai -- Berger-Levrault
+
+
+\textbf{Reviewers:}\\
+Salah Sadou -- Full professor -- Université Bretagne Sud\\
+Jean-Rémy Falleri -- Associate professor -- Université de Bordeaux Sud\\
+
+\textbf{President:}\\
+Franck Barbier -- Full professor -- Université de Pau et des Pays de l’Adour
+
 
 \divider
 
-% \cvref{Dr.\ Nicolas Anquetil}{Inria}{nicolas.anquetil@inria.fr}
+\cvevent{Engineering Degree in Software Engineering and Statistic}{Polytech Lille}{September 2015 -- July 2018}{}
 
-% \divider
+\textbf{Supervisors:} Anne Etien, Nicolas Anquetil, Laurent Deruelle, and Abderrahmane Seriai
 
-\cvref{Dr.\ Abderrahmane Seriai}{Berger-Levrault}{abderrahmane.seriai@berger-levrault.com}
+\divider
 
+\cvevent{University Diploma of Technology in Computer Science}{IUT A - University of Lille}{Sept 2014 -- June 2015}{}
 
-\end{paracol}
 
 \cvsection{Publications}
 
