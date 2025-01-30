@@ -36,15 +36,9 @@
 \ProcessOptions\relax
 
 \LoadClass{article}
-%% v1.3.2 Hopefully this helps make the PDF
-%% file more 'friendly' with copy-paste etc
-\RequirePackage{fixpdfx}
+
+\RequirePackage{etoolbox}
 \RequirePackage[a-1b]{pdfx}
-%% v1.3.3 Temporary fix for pdfx and biblatex incompatibility
-%% (Thanks to @badetitou for highlighting this issue)
-%% https://github.com/plk/biblatex/issues/1044
-%% Will be removed when fix is released in biblatex 3.16
-% \catcode30=12
 \RequirePackage{accsupp}
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage[fixed]{fontawesome5}
@@ -296,6 +290,18 @@
   \medskip\normalsize
 }
 
+\newcommand{\teachingevent}[5]{%
+  {\large\color{emphasis}#1\par}
+  \smallskip\normalsize
+  \ifstrequal{#2}{}{}{
+  \textbf{\color{accent}#2}\par
+  \smallskip}
+  \ifstrequal{#3}{}{}{{\small\makebox[0.3\linewidth][l]{\faCalendar~#3}}}%
+  \ifstrequal{#4}{}{}{{\small\makebox[0.3\linewidth][l]{\faMapMarker~#4}}}
+  \ifstrequal{#5}{}{}{{\small\makebox[0.3\linewidth][l]{\faClock~#5}}}\par
+  \medskip\normalsize
+}
+
 \newcommand{\cvachievement}[3]{%
   \begin{tabularx}{\linewidth}{@{}p{2em} @{\hspace{1ex}} >{\raggedright\arraybackslash}X@{}}
   \multirow{2}{*}{\Large\color{accent}#1} & \bfseries\textcolor{emphasis}{#2}\\
@@ -319,6 +325,12 @@
      \clipbox*{{.5\width} -0.25ex {\width} {\totalheight}}{\color{body!30}\ratingmarker}}
     {\ifdimgreater{\x bp}{#2 bp}{\color{body!30}}{\color{accent}}\ratingmarker}%
   }\EndAccSupp{}\par%
+}
+
+\newcommand{\cvskilltext}[2]{%
+  \textcolor{emphasis}{\textbf{#1}}\hfill
+  #2
+  \par%
 }
 
 % Adapted from @Jake's answer at http://tex.stackexchange.com/a/82729/226
