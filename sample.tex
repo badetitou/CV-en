@@ -1,23 +1,11 @@
-
 %%%%%%%%%%%%%%%%%
-% This is a sample CV template created using altacv.cls
-% (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
-%
-%% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2003/12/01 or later.
+% Revised AltaCV - Benoit Verhaeghe
 %%%%%%%%%%%%%%%%
 
 %% Use the "normal photo" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
 \documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
-%% AltaCV uses the fontawesome5 and packages.
-%% See http://texdoc.net/pkg/fontawesome5 for a full list of symbols.
 
 % Change the page layout if you need to
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
@@ -26,18 +14,14 @@
 \usepackage{paracol}
 \usepackage[utf8]{inputenc}
 
-% Change the font if you want to, depending on whether
-% you're using pdflatex or xelatex/lualatex
+% Font selection (pdflatex vs xelatex/lualatex)
 \ifxetexorluatex
-  % If using xelatex or lualatex:
   \setmainfont{Roboto Slab}
   \setsansfont{Lato}
   \renewcommand{\familydefault}{\sfdefault}
 \else
-  % If using pdflatex:
   \usepackage[rm]{roboto}
   \usepackage[defaultsans]{lato}
-  % \usepackage{sourcesanspro}
   \renewcommand{\familydefault}{\sfdefault}
 \fi
 
@@ -47,6 +31,7 @@
 \definecolor{DarkPastelRed}{HTML}{450808}
 \definecolor{PastelRed}{HTML}{8F0D0D}
 \definecolor{GoldenEarth}{HTML}{E7D192}
+
 \colorlet{name}{black}
 \colorlet{tagline}{PastelRed}
 \colorlet{heading}{DarkPastelRed}
@@ -62,44 +47,36 @@
 \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
 \renewcommand{\cvsubsectionfont}{\large\bfseries}
 
-
-% Change the bullets for itemize and rating marker
-% for \cvskill if you want to
+% Change the bullets for itemize and rating marker for \cvskill if you want to
 \renewcommand{\itemmarker}{{\small\textbullet}}
 \renewcommand{\ratingmarker}{\faCircle}
 
-%% Use (and optionally edit if necessary) this .cfg if you
-%% want to use an author-year reference style like APA(6)
-%% for your publication list
-%\input{pubs-authoryear.cfg}
-
-%% Use (and optionally edit if necessary) this .cfg if you
-%% want an originally numerical reference style like IEEE
-%% for your publication list
+% Publications config
 \input{pubs-num.cfg}
-
-%% sample.bib contains your publications
 \addbibresource{sample.bib}
 
+% Helper command (your original)
 \newcommand*\leftright[3]{%
-	\leavevmode
-	\rlap{#2}%
-	\hspace{#1}%
-	#3}
+  \leavevmode
+  \rlap{#2}%
+  \hspace{#1}%
+  #3}
+
+% Toggle for the long version
+\newif\iflongcv
+\longcvtrue % <-- set to \longcvfalse to output ONLY the 1-page/short CV
 
 \begin{document}
 
 \name{Benoit Verhaeghe, Ph.D.}
-\tagline{Leading Advanced Software Engineering Innovations}
-%% You can add multiple photos on the left or right
+\tagline{Engineering Leader | AI for Code | Software Modernization | GreenIT}
 \photoR{2.8cm}{profil}
 
 \personalinfo{%
-  % Not all of these are required!
   \email{work@badetitou.fr}
   \phone{+33 6 58 33 53 74}
-  \mailaddress{4, rue de la Moselle}
-  \location{38100 Grenoble, FRANCE}
+  % \mailaddress{4, rue de la Moselle} % Optional: usually not needed on modern CVs
+  \location{Grenoble, France}
   \homepage{badetitou.fr}
   \linkedin{benoitverhaeghe}
   \github{badetitou}
@@ -107,326 +84,290 @@
 }
 
 \makecvheader
-%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
-% \AtBeginEnvironment{itemize}{\small}
 
-%% Set the left/right column width ratio to 6:4.
-\columnratio{0.6}
+% Set the left/right column width ratio
+\columnratio{0.62}
 
-% Start a 2-column paracol. Both the left and right columns will automatically
-% break across pages if things get too long.
 \begin{paracol}{2}
+
+% =========================
+% LEFT COLUMN
+% =========================
+
+\cvsection{Profile}
+
+PhD in Software Engineering bridging \textbf{applied research} and \textbf{industrial delivery}. I lead innovation initiatives around \textbf{AI-assisted development}, \textbf{software modernization at scale} (e.g., \textbf{1M+ LOC} legacy systems), and \textbf{GreenIT} measurement. Open-source maintainer of a VS Code extension with \textbf{4,000+ installs}.
+
+\smallskip
+
 \cvsection{Experience}
 
-\cvevent{Scientific Project Manager}{Berger-Levrault}{janv. 2024 - today}{Lyon, FRANCE}
-
-Manage a \textbf{team of 6 engineers and doctors}, as well as several PhD students.
-Plan the long term roadmap of the team and leading the collaboration with \textbf{several research laboratories (Inria) and industrial units}.
-
-In particular, manage projects on:
+\cvevent{Scientific Project Manager / R\&D Lead}{Berger-Levrault}{Jan 2024 -- Present}{Lyon, France}
 \begin{itemize}
-\item \textbf{Productivity User Study}: Perform quantitative and qualitative analyses to assess the impact of new tools and approaches on developers.
-\item \textbf{AI for code}: Integrating AI into Merge Requests and IDEs; using MCP and tool-calling features; integrating new tool-calling in IDEs; measuring the real impact on production teams
-\item \textbf{GreenIT}: Measuring the energy consumption of infrastructure and code
-\item \textbf{Software Architecture and code cartography}: Representing code with maps to understand, plan, and modernize very large-scale applications
+  \item Lead a \textbf{team of 6} engineers and researchers; mentor interns and PhD students.
+  \item Define the long-term R\&D roadmap and coordinate collaborations with \textbf{Inria} and product/industrial units.
+  \item Run mixed-method studies (qualitative + quantitative) to assess \textbf{developer productivity} impact of new tools and practices.
+  \item Drive \textbf{AI for Code} initiatives (IDE \& merge request workflows): tool-calling/MCP integration and impact assessment in production teams.
+  \item Lead \textbf{GreenIT} measurement efforts (infrastructure + application/code footprint) and modernization support through \textbf{software cartography}.
 \end{itemize}
 
 \divider
 
-\cvevent{R\&D Software Engineer}{Berger-Levrault}{November 2021 -- December 2023}{Lyon, France}
-
+\cvevent{R\&D Software Engineer}{Berger-Levrault}{Nov 2021 -- Dec 2023}{Lyon, France}
 \begin{itemize}
-  \item Migrating Java (GWT and Swing) applications with more than one million lines of code to Angular
-  \item Manage Ph.D. Students and interns
-  \item Writing research papers
+  \item Contributed to migrating \textbf{large-scale} Java front-ends (GWT/Swing, \textbf{1M+ LOC}) toward \textbf{Angular}.
+  \item Supported incremental migration strategies (hybrid architectures) to reduce delivery risk.
+  \item Supervised PhD students and interns; co-authored papers and supported academic partnerships/technology transfer.
 \end{itemize}
 
 \divider
 
-\cvevent{Ph.D. Software Engineer}{Inria RMoD/Berger-Levrault}{Mars 2018 -- October 2021}{Montpellier/Lille, France}
-
+\cvevent{PhD Software Engineer (Industrial PhD)}{Inria RMoD / Berger-Levrault}{Mar 2018 -- Oct 2021}{Montpellier \& Lille, France}
 \begin{itemize}
-  \item Migrating GWT applications to Angular
-  \item Set up hybrid architecture (mixing GWT and Angular)
-  \item Analyse applications architecture
-  \item Writing research papers
-  \item Teaching
+  \item Built migration tooling for legacy GUIs from \textbf{GWT} to \textbf{Angular} using \textbf{Model-Driven Engineering}.
+  \item Performed architecture analyses to support planning and modernization.
+  \item Teaching contributions and peer-reviewed publications in software engineering venues.
 \end{itemize}
 
-\cvsection{Projects}
+\cvsection{Selected Projects}
 
-\cvevent{VSCode plugin --- Pharo Language Support}{Personnal project}{December 2020 -- Today}{}
-
+\cvevent{VS Code Extension --- Pharo Language Support}{Open-source (personal project)}{Dec 2020 -- Present}{}
 \begin{itemize}
-  \item Write Pharo code in VSCode
-  \item Debug Pharo code in VSCode
-  \item Use VSCode built-in notebook with Pharo
-  \item Connect AI feature to VSCode Pharo
-  \item +4000 installs in VSCode marketplace
+  \item End-to-end Pharo developer experience in VS Code: language support, debugging and notebooks.
+  \item Integrated AI-assisted tooling for Pharo workflows.
+  \item \textbf{4,000+ installs} on the VS Code Marketplace.
 \end{itemize}
 
 \divider
 
-
-\cvevent{Casino}{Inria RMoD/Berger-Levrault}{March 2018 --- December 2023}{Lille, France}
-
+\cvevent{Casino --- GUI Migration Platform}{Inria RMoD / Berger-Levrault}{Mar 2018 -- Dec 2023}{}
 \begin{itemize}
-  \item Automatic migration of application GUI
+  \item Automated migration of application GUIs; delivered \textbf{6 importers} and \textbf{5 exporters}.
 \end{itemize}
 
+% =========================
+% RIGHT COLUMN
+% =========================
 \switchcolumn
 
-\cvsection{Success}
+\cvsection{Awards \& Honors}
 
-\cvachievement{\faTrophy}{Open Science Thesis Award}{My thesis work was awarded the \href{https://www.enseignementsup-recherche.gouv.fr/fr/remise-des-premiers-prix-science-ouverte-de-la-these-97810}{\color{blue}\underline{Open Science Thesis Award}} by the Ministry of Higher Education and Research}
-
+\cvachievement{\faTrophy}{Open Science Thesis Award}{Thesis awarded by the \href{https://www.enseignementsup-recherche.gouv.fr/fr/remise-des-premiers-prix-science-ouverte-de-la-these-97810}{Open Science Thesis Award} (French Ministry of Higher Education and Research).}
 \divider
 
-\cvachievement{\faTrophy}{Third place Innovation Award}{\href{https://marketplace.visualstudio.com/items?itemName=badetitou.pharo-language-server}{\color{blue}\underline{Pharo Language Server}} was elected third at the Innovation Award of ESUG'2022}
-
+\cvachievement{\faTrophy}{Innovation Award (ESUG 2022) --- 3rd place}{\href{https://marketplace.visualstudio.com/items?itemName=badetitou.pharo-language-server}{Pharo Language Server} elected 3rd at the ESUG'2022 Innovation Award.}
 \divider
 
-\cvachievement{\faTrophy}{Best Paper Award}{Migrating GWT to Angular 6 using MDE @ Sattose}
-
+\cvachievement{\faTrophy}{Best Paper Award}{Migrating GWT to Angular 6 using MDE @ Sattose.}
 \divider
 
-\cvachievement{\faTrophy}{Second place Innovation Award}{\href{https://badetitou.fr/projects/SmartTest/}{\color{blue}\underline{SmartTest}} was elected second at the Innovation Award of ESUG'2017}
+\cvachievement{\faTrophy}{Innovation Award (ESUG 2017) --- 2nd place}{\href{https://badetitou.fr/projects/SmartTest/}{SmartTest} elected 2nd at the ESUG'2017 Innovation Award.}
 
-% \divider
+\cvsection{Expertise}
 
-% \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
+\textbf{Core Domains}
 
-\cvsection{Strengths}
-
-\cvtag{Pharo}
+\cvtag{Software Architecture}
+\cvtag{Reverse Engineering}
 \cvtag{MDE}
-\cvtag{Java}
-\cvtag{Angular}
-\cvtag{REST}
-\divider
-
-\cvtag{Optimization}
-\cvtag{Test Driven Development}
-\cvtag{Software Architecture Analysis}
+\cvtag{Software Modernization}
 
 \divider
 
-\cvtag{Git}
-\cvtag{Jenkins}
-\cvtag{GitHub / GitLab CI/CD}
+\textbf{AI \& Measurement}
+
+\cvtag{AI for Code} \cvtag{Developer Productivity} \cvtag{Tool Evaluation} \cvtag{GreenIT}
 
 \divider
 
-\cvtag{Communication}
-\cvtag{Project Management}
+\textbf{Languages \& Tools}
 
+\cvtag{Pharo} \cvtag{Java} \cvtag{Angular} \cvtag{TypeScript} \cvtag{REST}
+\cvtag{Git} \cvtag{Jenkins}
+
+\cvtag{GitHub/GitLab CI/CD}
+
+\divider
+
+\textbf{Leadership}
+
+\cvtag{Project Management} \cvtag{Collaboration} \cvtag{Mentoring} \cvtag{Communication}
 
 \cvsection{Languages}
 
-\leftright{5em}{\textbf{French}}{Mother tongue} \par
+\leftright{5em}{\textbf{French}}{Native}
+
 \divider
 
-\leftright{5em}{\textbf{English}}{Fluent}  \par
+\leftright{5em}{\textbf{English}}{Fluent}
 
-%% Yeah I didn't spend too much time making all the
-%% spacing consistent... sorry. Use \smallskip, \medskip,
-%% \bigskip, \vspace etc to make adjustments.
 \medskip
 
 \cvsection{Education}
 
-\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{January 2019 -- October 2021}{}
-Incremental Approach for Application GUI Migration using Metamodel
+\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{Jan 2019 -- Oct 2021}{}
+Incremental Approach for Application GUI Migration using Metamodels
 
 \divider
 
-\cvevent{Engineering Degree in Software Engineering and Statistic}{Polytech Lille}{September 2015 -- July 2018}{}
+\cvevent{Engineering Degree (Software Engineering \& Statistics)}{Polytech Lille}{Sep 2015 -- Jul 2018}{}
 
 \divider
 
-\cvevent{University Diploma of Technology in Computer Science}{IUT A - University of Lille}{Sept 2014 -- June 2015}{}
+\cvevent{University Diploma of Technology (Computer Science)}{IUT A -- University of Lille}{Sep 2014 -- Jun 2015}{}
 
-% \divider
-
-\cvsection{Hobbies}
-
-\cvtag{Board game}
-\cvtag{Open-Source Contributor}
-
+\cvsection{Interests}
+\cvtag{Board games}
+\cvtag{Open-source}
 
 \end{paracol}
 
+% =========================
+% LONG CV (optional)
+% =========================
+\iflongcv
 \newpage
 
 \cvsection{Long CV}
 
 \cvsection{Experience}
 
-\cvevent{Scientific Project Manager}{Berger-Levrault}{janv. 2024 - today}{Lyon, FRANCE}
+\cvevent{Scientific Project Manager / R\&D Lead}{Berger-Levrault}{Jan 2024 -- Present}{Lyon, France}
 
-Managed research and development projects focused on:
+\textbf{Scope:} applied R\&D programs connecting academia and industry, focused on AI for Software Engineering, measurement, and modernization.
 
 \begin{itemize}
-\item \textbf{Productivity User Study}: Perform quantitative and qualitative analyses to assess the impact of new tools and approaches on developers.
-\item \textbf{AI for Code}: Integration of AI into Merge Requests and IDEs; utilization of Model Completion Prompting (MCP) and tool-calling functionalities; integration of new tool-calling into IDEs; measurement of the real impact on production teams.
-\item \textbf{GreenIT}: Measurement of energy consumption for infrastructure and code.
-\item \textbf{Software Architecture and code cartography}: Representing code as maps to understand, plan, and modernize large-scale applications.
+\item \textbf{Developer Productivity User Studies}: define protocols, run qualitative \& quantitative analyses, and report actionable findings for engineering teams.
+\item \textbf{AI for Code}: integrate AI capabilities in merge request workflows and IDEs; explore MCP/tool-calling patterns; evaluate impact in production settings.
+\item \textbf{GreenIT}: measure energy consumption of infrastructure and application/code; contribute to eco-design decisions.
+\item \textbf{Software cartography \& architecture analysis}: build maps and models to understand and modernize very large-scale applications.
 \end{itemize}
 
-Managed a team of 5 researchers and engineers, as well as several PhD students.
+Led a \textbf{team of 6} engineers and researchers, and supervised several PhD students.
 
-Supervised theses on: \textbf{Test Selection}; \textbf{Test Generation}; \textbf{Microservice Application Architecture}; \textbf{Business Code Localization}.
+Supervised theses topics: \textbf{Test Selection}, \textbf{Test Generation}, \textbf{Microservice Architecture}, \textbf{Business Code Localization}.
 
-Planned the team’s long-term roadmap and \textbf{steered collaboration with multiple research laboratories (Inria)} and industrial units.
-
+Defined the long-term roadmap and coordinated collaborations with \textbf{multiple research laboratories (Inria)} and industrial units.
 
 \divider
 
-\cvevent{R\&D Software Engineer}{Berger-Levrault}{November 2021 -- December 2023}{Lyon, France}
+\cvevent{R\&D Software Engineer}{Berger-Levrault}{Nov 2021 -- Dec 2023}{Lyon, France}
 
 \begin{itemize}
-  \item Migrating applications to Angular (Casino Project -- MDE)
-  \item Analyse code quality 
-  \item Manage Ph.D. Students and interns
-  \item Writing research papers
-  \item Follow-up academic partnership
+  \item Modernization of legacy front-ends toward \textbf{Angular} (Casino project; Model-Driven Engineering approach).
+  \item Architecture and \textbf{code quality analysis} to support modernization decisions.
+  \item Supervision of PhD students and interns; peer-reviewed publications and technology transfer.
+  \item Follow-up and coordination of academic partnerships.
 \end{itemize}
 
-Following my thesis, Berger-Levrault and Inria signed a partnership agreement (\href{https://www.inria.fr/fr/berger-levrault-inria-partenariat-numerique-responsable}{\color{blue}\underline{post inria}}).
-I therefore remained at Berger-Levrault as a research engineer to continue software migration work and supervise the PhD students resulting from this partnership agreement.
-I also launched an internal project to analyze the company's software using the Moose meta-modeling platform.
+Following my PhD, Berger-Levrault and Inria signed a partnership agreement:
+\href{https://www.inria.fr/fr/berger-levrault-inria-partenariat-numerique-responsable}{Inria post}.
+I stayed at Berger-Levrault to continue modernization work, support the partnership, and develop internal software analysis initiatives using the Moose meta-modeling platform.
 
 \divider
 
-\cvevent{Ph.D. Software Engineer}{Berger-Levrault/Inria RMoD}{January 2019 -- October 2021}{Montpellier/Lille, France}
+\cvevent{PhD Software Engineer (Industrial PhD)}{Berger-Levrault / Inria RMoD}{Jan 2019 -- Oct 2021}{Montpellier \& Lille, France}
 
 \begin{itemize}
-  \item Migrating Java (GWT and Swing) applications with more than one million lines of code to Angular
-  \item Set up hybrid architecture (mixing GWT and Angular together)
-  \item Writing research papers
-  \item Teaching
-  \item Writing blog post about the Moose platform (\url{https://modularmoose.org/blog/authors/benoit-verhaeghe/})
+  \item Migration of large Java applications (\textbf{GWT} and \textbf{Swing}, \textbf{1M+ LOC}) to \textbf{Angular}.
+  \item Hybrid architecture setup (mixing GWT and Angular) for incremental migration and delivery.
+  \item Publications and teaching contributions.
+  \item Blog posts about the Moose platform: \url{https://modularmoose.org/blog/authors/benoit-verhaeghe/}
 \end{itemize}
 
 \divider
 
-\cvevent{R\&D Software Engineer}{Berger-Levrault}{March 2018 -- December 2018}{Montpellier, France}
-
+\cvevent{R\&D Software Engineer}{Berger-Levrault}{Mar 2018 -- Dec 2018}{Montpellier, France}
 \begin{itemize}
-  \item Creation of tools to migrate GWT applications to Angular technology
-  \item Meta-modeling
-  \item Code analysis
-  \item State of the art
+  \item Creation of tools to migrate GWT applications to Angular.
+  \item Meta-modeling, code analysis, and state-of-the-art reviews.
 \end{itemize}
 
 \divider
 
-\cvevent{Research Internship}{Inria RMoD}{May -- September 2017}{Villeneuve d'Ascq, France}
-
+\cvevent{Research Internship}{Inria RMoD}{May -- Sep 2017}{Villeneuve d'Ascq, France}
 \begin{itemize}
-  \item Learning the Pharo programming language
-  \item Understanding tests selection
-  \item Developing an automatic tests selection tool
-  \item Test the tool with the Pharo community
-  \item Integration of the tool in the Pharo core
-  \item Writing research papers
+  \item Learned the Pharo language and ecosystem; studied test selection approaches.
+  \item Developed an automatic test selection tool and validated it with the Pharo community.
+  \item Contributed to integration into the Pharo core; authored research papers.
 \end{itemize}
 
 \divider
 
-\cvevent{Software Developer}{University of Emden,  Departement Computer Science}{Avril -- July 2015}{Emden, Allemagne}
-
+\cvevent{Software Developer}{University of Emden (Department of Computer Science)}{Apr -- Jul 2015}{Emden, Germany}
 \begin{itemize}
-  \item Developing a Java application using the OPC-UA protocol
+  \item Developed a Java application using the OPC-UA protocol.
 \end{itemize}
 
 \cvsection{Projects}
 
-\cvevent{VSCode plugin --- Pharo Language Support}{Personnal project}{January 2021}{}
-
+\cvevent{VS Code Extension --- Pharo Language Support}{Open-source (personal project)}{Dec 2020 -- Present}{}
 \begin{itemize}
-  \item Write Pharo code in VSCode
-  \item Debug Pharo code in VSCode
-  \item Use VSCode built-in notebook with Pharo
-  \item +4000 installs in VSCode marketplace
+  \item Write and debug Pharo code in VS Code; notebook-based workflows.
+  \item AI-assisted features integrated for the Pharo ecosystem.
+  \item \textbf{4,000+ installs} on the VS Code Marketplace.
 \end{itemize}
 
 \divider
 
-
-\cvevent{Casino}{Inria RMoD/Berger-Levrault}{March 2018 --- today}{Montpellier, France}
-
+\cvevent{Casino --- GUI Migration Platform}{Inria RMoD / Berger-Levrault}{Mar 2018 -- Dec 2023}{}
 \begin{itemize}
-  \item Automatic migration of application GUI
-  \item 6 importers and 5 exporters
+  \item Automatic migration of application GUIs.
+  \item Delivered \textbf{6 importers} and \textbf{5 exporters}.
 \end{itemize}
 
+\divider
+
+\cvevent{Pharo LibVLC}{Open-source (personal project)}{}{}
+\href{https://github.com/badetitou/Pharo-LibVLC}{Pharo LibVLC} is an FFI binding of the VLC library for Pharo.
 
 \divider
 
-\cvevent{Pharo LibVLC}{Personnal project}{}{}
-
-\href{https://github.com/badetitou/Pharo-LibVLC}
-{\color{blue}\underline{Pharo LibVLC}} is an FFI binding of the VLC library with Pharo.
-
-
-\divider
-
-\cvevent{SmartTest}{Inria RMoD}{July 2017 --- July 2018}{Lille, France}
+\cvevent{SmartTest}{Inria RMoD}{Jul 2017 -- Jul 2018}{Lille, France}
 \begin{itemize}
-  \item Automatic selection of tests in Pharo
-  \item Development of different test execution strategies
+  \item Automatic selection of tests in Pharo.
+  \item Development of different test execution strategies.
 \end{itemize}
 
-\cvsection{teaching}
+\cvsection{Teaching}
 
-\cvevent{Software architecture}{Polytech Lille}{2019 --- 2021}{France}
-
+\cvevent{Software Architecture}{Polytech Lille}{2019 -- 2021}{France}
 \divider
 
-\cvevent{Software evolution and metamodeling}{University of Montpellier}{2019 --- 2021}{Montpellier, France}
-
+\cvevent{Software Evolution \& Meta-modeling}{University of Montpellier}{2019 -- 2021}{Montpellier, France}
 \divider
 
-\cvevent{Basic Algorithms}{University of Montpellier}{2019 --- 2021}{Montpellier, France}
+\cvevent{Basic Algorithms}{University of Montpellier}{2019 -- 2021}{Montpellier, France}
 
 \cvsection{Education}
 
-\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{January 2019 -- October 2021}{}
-Incremental Approach for Application GUI Migration using Metamodel
-
+\cvevent{Ph.D. in Software Engineering}{University of Lille / Berger-Levrault}{Jan 2019 -- Oct 2021}{}
+Incremental Approach for Application GUI Migration using Metamodels
 
 \textbf{Academic supervisors:}\\
 Nicolas Anquetil -- Associate professor -- Université de Lille\\
 Anne Etien -- Full professor -- Université de Lille\\
 \textbf{Industrial supervisor:} Abderrahmane Seriai -- Berger-Levrault
 
-
 \textbf{Reviewers:}\\
 Salah Sadou -- Full professor -- Université Bretagne Sud\\
-Jean-Rémy Falleri -- Associate professor -- Université de Bordeaux Sud\\
+Jean-Rémy Falleri -- Associate professor -- Université de Bordeaux Sud
 
 \textbf{President:}\\
-Franck Barbier -- Full professor -- Université de Pau et des Pays de l’Adour
-
+Franck Barbier -- Full professor -- Université de Pau et des Pays de l'Adour
 
 \divider
 
-\cvevent{Engineering Degree in Software Engineering and Statistic}{Polytech Lille}{September 2015 -- July 2018}{}
-
+\cvevent{Engineering Degree (Software Engineering \& Statistics)}{Polytech Lille}{Sep 2015 -- Jul 2018}{}
 \textbf{Supervisors:} Anne Etien, Nicolas Anquetil, Laurent Deruelle, and Abderrahmane Seriai
 
 \divider
 
-\cvevent{University Diploma of Technology in Computer Science}{IUT A - University of Lille}{Sept 2014 -- June 2015}{}
+\cvevent{University Diploma of Technology (Computer Science)}{IUT A -- University of Lille}{Sep 2014 -- Jun 2015}{}
 
 \cvsection{Publications}
 
 \nocite{*}
-
-% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
-
-% \divider
 
 \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
 
@@ -436,6 +377,8 @@ Franck Barbier -- Full professor -- Université de Pau et des Pays de l’Adour
 
 \divider
 
-\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{PhD thesis}},type=thesis]
+\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{PhD Thesis}},type=thesis]
+
+\fi % end long cv toggle
 
 \end{document}
